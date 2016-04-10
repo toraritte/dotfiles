@@ -9,14 +9,14 @@
 	unstage = reset HEAD --
 	lo = log --pretty=format:\"%h %an--- %ar --- %s\" --graph
 	discard = checkout --
-	ctags = !.git/hooks/ctags
+	; ctags = !.git/hooks/ctags
 [push]
 	default = simple
 [merge]
 	tool = vimdiff
 [difftool]
 	prompt = false
-[init]
-	templatedir = /home/toraritte/dotfiles/.git_template/
+; [init]
+; 	templatedir = /home/toraritte/dotfiles/.git_template/
 [diff]
 	tool = vimdiff
