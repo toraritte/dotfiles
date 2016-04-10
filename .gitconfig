@@ -7,7 +7,7 @@
 	ci = commit
 	st = status
 	unstage = reset HEAD --
-	lo = log --pretty=format:\"%h %an--- %ar --- %s\" --graph
+	lo = log --pretty=format:\"%C(yellow)%h%Creset %s%n%C(magenta)%C(bold)%an%Creset %ar\" --graph
 	discard = checkout --
 	; ctags = !.git/hooks/ctags
 [push]
