@@ -3,6 +3,9 @@
 # for examples
 
 # If not running interactively, don't do anything
+# ... aaand what the hell this check means and why
+#     it matters
+# http://unix.stackexchange.com/questions/257571/why-does-bashrc-check-whether-the-current-shell-is-interactive
 case $- in
     *i*) ;;
       *) return;;
