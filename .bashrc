@@ -40,7 +40,7 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # GIT STATUS IN BASH PROMPT
-source ~/dotfiles/_work/git-prompt.sh
+source ~/dotfiles/add/git-prompt.sh
 # + for staged, * if unstaged.
 GIT_PS1_SHOWDIRTYSTATE=1¬
 # $ if something is stashed.
