@@ -6,3 +6,6 @@ wget -O ./_work/git-prompt.sh https://raw.githubusercontent.com/git/git/master/c
 
 # Add the erl helper functions that I am "very" proud of
 cp erlang/.erlang ~
+
+# mc shortcuts
+cp .config ~
