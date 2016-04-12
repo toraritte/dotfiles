@@ -40,6 +40,7 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # GIT STATUS IN BASH PROMPT
+source ~/dotfiles/_work/git-prompt.sh
 # + for staged, * if unstaged.
 GIT_PS1_SHOWDIRTYSTATE=1¬
 # $ if something is stashed.
@@ -51,7 +52,7 @@ GIT_PS1_SHOWUPSTREAM=1
 
 # bash prompt
 # "She's saying ... a bunch of stuff. Look, have you tried drugs?"
-PS1='`if [ $? = 0 ]; then echo "\[\033[1;32m\]✔"; else echo "\[\033[1;31m\]✘"; fi`\[\033[0m\] \[\033[32m\][\j]\[\033[0m\] \[\e[33m\]$(__git_ps1 "%s") \[\e[m\]\[\e[32m\][\w] \[\e[m\] \n\[\e[01;30m\][\!] \t \[\033[0m\]'
+PS1='`if [ $? = 0 ]; then echo "\[\033[1;32m\]✔"; else echo "\[\033[1;31m\]✘"; fi`\[\033[0m\] \[\e[33m\]$(__git_ps1 "%s") \[\e[m\]\[\e[32m\][\w] \[\e[m\] \n\[\e[01;30m\][\!] \t \[\033[0m\]'
 
 ##################################
 ### ALIASES ######################
