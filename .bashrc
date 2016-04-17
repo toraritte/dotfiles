@@ -58,13 +58,15 @@ PS1='`if [ $? = 0 ]; then echo "\[\033[1;32m\]✔"; else echo "\[\033[1;31m\]✘
 ### ALIASES ######################
 ##################################
 
-# In Fedora there is a hickup with vim so this an
+# In Fedora there is a hitch with vim so this an
 # alias to gvim is needed.
 if grep --quiet fedora /etc/*release; then
   alias vim='gvim -v'
+  ln -s ~/.vimrc .gvimrc
+  ln -s ~/.vim/  .gvim
 fi
 
-alias ll='ls -alF --group-directories-first'
+alias ll='ls -alF --group-directories-first --color'
 alias g='egrep --colour -i'
 alias b='bc -lq'
 alias dt="date +%Y/%m/%d-%H:%M"
