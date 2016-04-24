@@ -1,10 +1,16 @@
 backupdir=".old-dots/"$(date +%Y%m%d-%H%M)
-pebbles=".bashrc .vimrc .gitconfig .erlang"
+pebbles=$(ls -A pebbles/)
 
 mkdir -p ~/$backupdir
 
 for p in $pebbles; do
-  mv ~/$p ~/$backupdir 2> /dev/null
-  ln -s {dotfiles/pebbles/,~/}$p
+  p_path="pebbles/"$p
+  if [[ -d $p_path ]]
+    then
+      cp -r $p_path ~
+    else
+      mv ~/$p ~/$backupdir 2> /dev/null
+      ln -s {dotfiles/pebbles/,~/}$p
+  fi
 done
 
