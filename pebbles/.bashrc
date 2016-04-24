@@ -17,6 +17,9 @@ esac
 shopt -s histappend # man shopt
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r" # help history
 
+# glob hidden files too with *
+shopt -s dotglob
+
 # don't put duplicate lines in the history.
 HISTCONTROL=ignoredups # man bash
 HISTSIZE=200000
@@ -62,7 +65,6 @@ PS1='`if [ $? = 0 ]; then echo "\[\033[1;32m\]✔"; else echo "\[\033[1;31m\]✘
 # alias to gvim is needed.
 if grep --quiet fedora /etc/*release; then
   alias vim='gvim -v'
-  ln -s ~/.vim/  .gvim
 fi
 
 alias ll='ls -alF --group-directories-first --color'
@@ -87,6 +89,10 @@ fi
 export PATH="$HOME/.local/bin:$HOME/local/src/rebar:$PATH"
 export EDITOR=$(which vim)
 export MANWIDTH=80
+# for the vim-fzf plugin to list hidden files as well
+# but the previous commands are still needed because
+# fzf in bash is set up differently
+export FZF_DEFAULT_COMMAND='find .'
 
 set -o vi
 

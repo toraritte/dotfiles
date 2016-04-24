@@ -2,10 +2,10 @@
 source add/dots.sh
 
 # Add the erl helper functions that I am "very" proud of
-cp -rv erlang/.erlang ~
+cp -rv pebbles/.erlang ~
 
 # mc shortcuts
-cp -rv .config ~
+cp -rv pebbles/.config ~
 
 # fzf
 source add/fzf-setup.sh
