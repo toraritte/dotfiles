@@ -311,3 +311,6 @@ let g:CommandTAlwaysShowDotFiles=1
 
 " Vim-ruby {{{2
 let ruby_fold=1
+
+" netrw
+let g:netrw_liststyle=3
