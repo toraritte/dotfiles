@@ -1,8 +1,5 @@
-Small scripts so that changing systems wouldn't be so time consuming.
+add/git-prompt.sh
+  sourced in ./.bashrc to enable git completion in bash
 
-### TODO
-
-  * look into ctags, git hooks etc
-  **.git_template**   [Tim Pope's strategy](http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html) to automatically generate ctags
-                    only deviation on my part: `git config --global init.templatedir '~/**dotfiles**/.git_template`
-
+add/fzf-setup.sh
+  sourced in ./dot-install.sh
