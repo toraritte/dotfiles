@@ -62,7 +62,6 @@ PS1='`if [ $? = 0 ]; then echo "\[\033[1;32m\]✔"; else echo "\[\033[1;31m\]✘
 # alias to gvim is needed.
 if grep --quiet fedora /etc/*release; then
   alias vim='gvim -v'
-  ln -s ~/.vimrc .gvimrc
   ln -s ~/.vim/  .gvim
 fi
 
