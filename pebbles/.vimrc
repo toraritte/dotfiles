@@ -3,6 +3,7 @@
 " === Plugin Management {{{1
 " switching to plugin manager https://github.com/junegunn/vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !cp -rv ~/dotfiles/copy/.vim ~/dotfiles/pebbles/
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall | source $MYVIMRC
@@ -13,6 +14,17 @@ Plug 'vim-scripts/netrw.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/neocomplete.vim'
+Plug 'easymotion/vim-easymotion' | Plug 'haya14busa/incsearch.vim' | Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'elixir-lang/vim-elixir'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " === Settings   {{{1
