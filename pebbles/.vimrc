@@ -1,7 +1,21 @@
 " vim:fdm=marker:fdl=0:fdls=0:
-" pathogen plugin by tim pope
-execute pathogen#infect()
 
+" === Plugin Management {{{1
+" switching to plugin manager https://github.com/junegunn/vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'vim-scripts/netrw.vim'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-fugitive'
+Plug 'Shougo/neocomplete.vim'
+call plug#end()
+
+" === Settings   {{{1
 syntax on
 if &t_Co > 2 || has("gui_running")
  syntax on
@@ -9,7 +23,6 @@ endif
 
 colorscheme railscasts
 
-" === Settings   {{{1
 set foldtext=substitute(getline(v:foldstart),'/\\*\\\|\\*/\\\|{{{\\d\\=','','g')
 set foldlevelstart=0
 set modeline
