@@ -70,6 +70,7 @@ set statusline+=[b%n,                      " buffer number
 " window number, alternate file in which window (-1 = not visible)
 set statusline+=w%{winnr()}]
 set statusline+=%h%m%r%w                     " flags
+set rtp+=~/.fzf
 
 " === Scripts   {{{1
 " _$ - Strip trailing whitespace {{{2
@@ -171,33 +172,30 @@ nnoremap 44 <C-^>
 " 99 instead of <C-w>w
 nnoremap 99 <C-w>w
 
-" ,, in INSERT mode to trigger <C-X><C-i>
-imap ,, <C-x><C-i>
-
-" %% - Open files in their respective folders other than the pwd {{{2
+" %% - Open files in their respective folders other than the pwd
 cnoremap <expr> %%  getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'
 
-" map ' to ` {{{2
+" map ' to `
 map ' `
 
-" <Leader>l - change working dir for current window only {{{2
+" <Leader>l - change working dir for current window only
 nnoremap <Leader>l :lcd %:p:h<CR>:pwd<CR>
 
-" & - synonym for :&& instead of :& (both in Normal and in Visual mode) {{{2
+" & - synonym for :&& instead of :& (both in Normal and in Visual mode)
 nnoremap & :&&<CR>$
 xnoremap & :&&<CR>$
 
-" <Space> instead of 'za' (unfold the actual fold) {{{2
+" <Space> instead of 'za' (unfold the actual fold)
 nnoremap <Space> za
 
-" in NORMAL mode CTRL-j splits line at cursor {{{2
+" in NORMAL mode CTRL-j splits line at cursor
 nnoremap <NL> i<CR><ESC>
 
-" <C-p> and <C-n> instead of <Up>,<Down> on command line {{{2
+" <C-p> and <C-n> instead of <Up>,<Down> on command line
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
-" {visual}* search {{{2
+" {visual}* search
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 function! s:VSetSearch()
@@ -207,36 +205,12 @@ function! s:VSetSearch()
   let @s = temp
 endfunction
 
-" & now repeats the last :s with its flags {{{2
+" & now repeats the last :s with its flags
 " the original & repeats the last :s WITHOUT the flags
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
-" <CR> starts a new change in INSERT mode {{{2
-" and abbreviations are expanded
-:inoremap <CR> <C-]><C-G>u<CR>
-
-" " === Abbreviations   {{{1
-" iab mod module end<C-O>2Te
-" iab cla class end<C-O>Ts
-" iab def def end<C-O>Tf
-
 " === Plugin configuration   {{{1
-" txtfmt: some color fix {{{2
-let g:txtfmtColor{1} = '^\\%(k\\|bla\\%[ck]\\)$,c:Black,g:#000000'
-let g:txtfmtColor{2} = '^b\\%[lue]$,c:DarkBlue,g:#2aa58f'
-let g:txtfmtColor{3} = '^g\\%[reen]$,c:DarkGreen,g:#00b000'
-let g:txtfmtColor{4} = '^t\\%[urquoise]$,c:LightGreen,g:#00FFFF'
-let g:txtfmtColor{5} = '^r\\%[ed]$,c:DarkRed,g:#ff2727'
-let g:txtfmtColor{6} = '^v\\%[iolet]$,c:DarkMagenta,g:#FF00FF'
-let g:txtfmtColor{7} = '^y\\%[ellow]$,c:DarkYellow,g:#ffd700'
-let g:txtfmtColor{8} = '^w\\%[hite]$,c:White,g:#FFFFFF'
-"------------------------------------------------------------------------
-" VOom options {{{2
-let g:voom_tree_width = 57
-" Voom quickstart
-nnoremap <LocalLeader><LocalLeader><CR> :Voom<CR>
-"------------------------------------------------------------------------
 " Load matchit.vim, but only if the user hasn't installed a newer version. {{{2
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
@@ -324,17 +298,6 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-" command-t {{{2
-nnoremap <silent> <Leader>j :CommandTJump<CR>
-let g:CommandTMaxFiles=700000
-let g:CommandTMaxDepth=27
-let g:CommandTFileScanner='watchman'
-let g:CommandTScanDotDirectories=1
-let g:CommandTInputDebounce=200
-let g:CommandTMaxCachedDirectories=10
-let g:CommandTAlwaysShowDotFiles=1
-
-" Vim-ruby {{{2
 let ruby_fold=1
 
 " netrw
