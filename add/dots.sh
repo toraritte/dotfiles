@@ -1,6 +1,6 @@
 backupdir=".old-dots/"$(date +%Y%m%d-%H%M)
-pebbles=$(ls -A pebbles/)
-copy=$(ls -A copy/)
+pebbles=$(ls -A ~/dotfiles/pebbles/)
+copy=$(ls -A ~/dotfiles/copy/)
 
 mkdir -p ~/$backupdir
 
