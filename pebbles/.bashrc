@@ -86,7 +86,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="$HOME/.local/bin:$HOME/local/src/rebar:$PATH"
+# export PATH="$HOME/aplaceholderforthefuture:$PATH"
 export EDITOR=$(which vim)
 export MANWIDTH=80
 # for the vim-fzf plugin to list hidden files as well
@@ -98,5 +98,8 @@ set -o vi
 
 # Cleanup after dot-install is finished
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export PATH="$HOME/.exenv/bin:$PATH"
-eval "$(exenv init -)"
+
+# https://bbs.archlinux.org/viewtopic.php?id=129992
+# I had an issue with iex and this solved it
+export LANG=en_US.UTF-8
+export LC_MESSAGES="C"
