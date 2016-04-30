@@ -37,6 +37,7 @@ endif
 
 colorscheme railscasts
 
+set encoding=utf-8
 set foldtext=substitute(getline(v:foldstart),'/\\*\\\|\\*/\\\|{{{\\d\\=','','g')
 set foldlevelstart=0
 set modeline

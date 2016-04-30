@@ -55,7 +55,7 @@ GIT_PS1_SHOWUPSTREAM=1
 
 # bash prompt
 # "She's saying ... a bunch of stuff. Look, have you tried drugs?"
-PS1='`if [ $? = 0 ]; then echo "\[\033[1;32m\]✔"; else echo "\[\033[1;31m\]✘"; fi`\[\033[0m\] \[\e[33m\]$(__git_ps1 "%s") \[\e[m\]\[\e[32m\][\w] \[\e[m\] \n\[\e[01;30m\][\!] \t \[\033[0m\]'
+PS1='\[\e[33m\]$(__git_ps1 "%s") \[\e[m\]\[\e[32m\]\u@\h \[\e[m\] \[\e[01;30m\][\w] \n\t \[\033[0m\]'
 
 ##################################
 ### ALIASES ######################
