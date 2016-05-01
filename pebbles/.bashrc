@@ -75,7 +75,7 @@ alias r='fc -s' # repeat the last command
 alias tmux='tmux -2' # make tmux support 256 color
 
 # http://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
-trls() {
+tl() {
   tree -C $@ | less -R
 }
 
