@@ -72,8 +72,12 @@ alias g='egrep --colour -i'
 alias b='bc -lq'
 alias dt="date +%Y/%m/%d-%H:%M"
 alias r='fc -s' # repeat the last command
-alias trls='tree -C | less -R'	# colorize tree
 alias tmux='tmux -2' # make tmux support 256 color
+
+# http://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
+trls() {
+  tree -C $@ | less -R
+}
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
