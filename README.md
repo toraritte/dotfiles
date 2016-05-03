@@ -1,3 +1,6 @@
+_work/
+  Add unincorporated changes in here, such as kerl, exenv etc needs to alter the path, add extra commands in .bashrc.
+
 copy/
   Everything that only needs to be copied to ~
 
