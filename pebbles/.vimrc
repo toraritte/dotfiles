@@ -27,6 +27,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf.vim'
+Plug 'vim-erlang/vim-erlang-runtime'
 call plug#end()
 
 " === Settings   {{{1

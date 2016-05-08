@@ -107,3 +107,5 @@ set -o vi
 # I had an issue with iex and this solved it
 export LANG=en_US.UTF-8
 export LC_MESSAGES="C"
+
+source ~/dotfiles/_work/bashrc-extra
