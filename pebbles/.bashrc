@@ -69,6 +69,7 @@ fi
 
 alias ll='ls -alF --group-directories-first --color'
 alias g='egrep --colour -i'
+alias ag='ag --hidden'
 alias b='bc -lq'
 alias dt="date +%Y/%m/%d-%H:%M"
 alias r='fc -s' # repeat the last command
@@ -108,4 +109,4 @@ set -o vi
 export LANG=en_US.UTF-8
 export LC_MESSAGES="C"
 
-source ~/dotfiles/_work/bashrc-extra
+# source ~/dotfiles/_work/bashrc-extra
