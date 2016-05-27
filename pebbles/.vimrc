@@ -3,7 +3,6 @@
 " === Plugin Management {{{1
 " switching to plugin manager https://github.com/junegunn/vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !cp -rv ~/dotfiles/copy/.vim ~/dotfiles/pebbles/
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall | source $MYVIMRC
