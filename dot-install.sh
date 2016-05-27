@@ -1,7 +1,7 @@
 # fzf
-source ~/dotfiles/add/fzf-setup.sh
+source $HOME/dotfiles/install-scripts/fzf-setup.sh
 
 # link install-basic dotfiles in home to the ones in this repo
-source ~/dotfiles/add/dots.sh
+source $HOME/dotfiles/install-scripts/dots.sh
 
 exec $SHELL
