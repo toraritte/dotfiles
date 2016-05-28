@@ -3,7 +3,6 @@
 " === Plugin Management {{{1
 " switching to plugin manager https://github.com/junegunn/vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !cp -rv ~/dotfiles/copy/.vim ~/dotfiles/pebbles/
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall | source $MYVIMRC
@@ -28,6 +27,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf.vim'
 Plug 'vim-erlang/vim-erlang-runtime'
+Plug 'vim-erlang/vim-erlang-compiler'
+Plug 'vim-erlang/vim-erlang-tags'
+Plug 'sjl/tslime.vim'
 call plug#end()
 
 " === Settings   {{{1
@@ -338,3 +340,6 @@ endfunction
 noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
 noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
 noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
+
+" tslime {{{2
+let g:tslime_ensure_trailing_newlines = 1

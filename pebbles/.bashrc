@@ -74,6 +74,7 @@ alias b='bc -lq'
 alias dt="date +%Y/%m/%d-%H:%M"
 alias r='fc -s' # repeat the last command
 alias tmux='tmux -2' # make tmux support 256 color
+alias ag='ag --hidden'
 
 # http://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
 tl() {

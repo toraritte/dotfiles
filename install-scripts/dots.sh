@@ -3,6 +3,7 @@ pebbles=$(ls -A ~/dotfiles/pebbles/)
 copy=$(ls -A ~/dotfiles/copy/)
 
 mkdir -p ~/$backupdir
+mkdir -p ~/.vim
 
 for p in $pebbles; do
   mv ~/$p ~/$backupdir 2> /dev/null
@@ -10,6 +11,6 @@ for p in $pebbles; do
 done
 
 for c in $copy; do
-  [[ $c != .vim ]] && cp -rv ~/dotfiles/copy/$c ~
+  cp -rv ~/dotfiles/copy/$c ~
 done
 

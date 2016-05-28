@@ -1,7 +1,7 @@
 % get the user home
 {ok,[[Home]]} = init:get_argument(home).
 % construct the path to "user_default.beam"
-UserDefault = filename:join([Home,"dotfiles","erlang","user_default"]).
+UserDefault = filename:join([Home,"dotfiles","add","erlang","user_default"]).
 % compile "user_default.erl" whenever shell is started
 compile:file(UserDefault, {outdir,filename:dirname(UserDefault)}).
 % load "user_default.beam"
