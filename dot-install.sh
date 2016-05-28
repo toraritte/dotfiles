@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # fzf
 source $HOME/dotfiles/install-scripts/fzf-setup.sh
 
