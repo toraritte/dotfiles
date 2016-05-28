@@ -113,6 +113,7 @@ if has("autocmd")
   autocmd FileType erl setlocal ts=8 sw=4 sts=4 noet
   autocmd BufRead,BufNewFile *.slim setfiletype slim
   autocmd FileType gitcommit setlocal textwidth=72
+  au BufEnter *.erl :set shiftwidth=4
 endif
 
 " TFiles - Drew Neil's TagFiles altered to print 'path' too {{{2
