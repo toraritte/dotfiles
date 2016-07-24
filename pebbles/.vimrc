@@ -182,9 +182,6 @@ nnoremap 99 <C-w>w
 " %% - Open files in their respective folders other than the pwd
 cnoremap <expr> %%  getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'
 
-" map ' to `
-map ' `
-
 " <Leader>l - change working dir for current window only
 nnoremap <Leader>l :lcd %:p:h<CR>:pwd<CR>
 
@@ -216,6 +213,14 @@ endfunction
 " the original & repeats the last :s WITHOUT the flags
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
+
+" fzf
+nnoremap <leader><C-r> :History:<CR>
+nnoremap <leader><C-o> :Files<CR>
+nnoremap <leader><C-l> :Lines<CR>
+nnoremap <leader><C-i> :BLines<CR>
+nnoremap <leader><C-k> :Buffers<CR>
+nnoremap <leader><C-j> :Ag<CR>
 
 " === Plugin configuration   {{{1
 " Load matchit.vim, but only if the user hasn't installed a newer version. {{{2
