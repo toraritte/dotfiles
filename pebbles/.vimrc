@@ -25,11 +25,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'junegunn/fzf.vim'
+Plug 'toraritte/fzf.vim'
 Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-compiler'
 Plug 'vim-erlang/vim-erlang-tags'
 Plug 'sjl/tslime.vim'
+Plug 'embear/vim-foldsearch'
 call plug#end()
 
 " === Settings   {{{1
@@ -221,6 +222,7 @@ nnoremap <leader><C-l> :Lines<CR>
 nnoremap <leader><C-i> :BLines<CR>
 nnoremap <leader><C-k> :Buffers<CR>
 nnoremap <leader><C-j> :Ag<CR>
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " === Plugin configuration   {{{1
 " Load matchit.vim, but only if the user hasn't installed a newer version. {{{2
