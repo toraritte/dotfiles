@@ -40,7 +40,7 @@ __fzf_select_tmux_auto__() {
 __fzf_cd__() {
   local cmd dir
   cmd="${FZF_ALT_C_COMMAND:-"command find -L . -type d -print 2> /dev/null | sed 1d | cut -b3-"}"
-  dir=$(eval "$cmd" | $(__fzfcmd) +m) && printf 'cd %q' "$dir"
+  dir=$(eval "$cmd" | $(__fzfcmd) +m) && printf 'pushd %q' "$dir"
 }
 
 __fzf_history__() (
