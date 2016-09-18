@@ -110,7 +110,7 @@ if has("autocmd")
    \ endif
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
   autocmd FileType ruby setlocal et ts=2 sw=2 tw=0
-  autocmd FileType html setlocal et ts=2 sw=2 tw=0
+  autocmd FileType html setlocal et ts=2 sw=2 tw=0 fdm=syntax
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noet
   autocmd Filetype slim setlocal ts=2 sts=2 sw=2
   autocmd FileType erl setlocal ts=8 sw=4 sts=4 noet
