@@ -32,6 +32,7 @@ Plug 'vim-erlang/vim-erlang-tags'
 Plug 'sjl/tslime.vim'
 Plug 'embear/vim-foldsearch'
 Plug 'sheerun/vim-polyglot'
+Plug 'Konfekt/FastFold'
 call plug#end()
 
 " === Settings   {{{1
