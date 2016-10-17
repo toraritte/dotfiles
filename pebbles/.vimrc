@@ -32,6 +32,7 @@ Plug 'vim-erlang/vim-erlang-tags'
 Plug 'sjl/tslime.vim'
 Plug 'embear/vim-foldsearch'
 Plug 'sheerun/vim-polyglot'
+Plug 'lambdatoast/elm.vim'
 call plug#end()
 
 " === Settings   {{{1
