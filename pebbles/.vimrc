@@ -32,6 +32,7 @@ Plug 'vim-erlang/vim-erlang-tags'
 Plug 'sjl/tslime.vim'
 Plug 'embear/vim-foldsearch'
 Plug 'sheerun/vim-polyglot'
+Plug 'lambdatoast/elm.vim'
 Plug 'Konfekt/FastFold'
 call plug#end()
 
@@ -111,6 +112,7 @@ if has("autocmd")
    \   exe "normal! g`\"" |
    \ endif
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
+  autocmd FileType elm setlocal et ts=2 sw=2 tw=0 fdm=syntax
   autocmd FileType ruby setlocal et ts=2 sw=2 tw=0
   autocmd FileType html setlocal et ts=2 sw=2 tw=0 fdm=syntax
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noet
