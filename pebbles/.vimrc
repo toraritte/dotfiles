@@ -33,6 +33,7 @@ Plug 'sjl/tslime.vim'
 Plug 'embear/vim-foldsearch'
 Plug 'sheerun/vim-polyglot'
 Plug 'lambdatoast/elm.vim'
+Plug 'Konfekt/FastFold'
 call plug#end()
 
 " === Settings   {{{1
