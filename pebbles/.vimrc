@@ -25,7 +25,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'toraritte/fzf.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-compiler'
 Plug 'vim-erlang/vim-erlang-tags'
@@ -355,3 +355,4 @@ let g:tslime_ensure_trailing_newlines = 1
 
 " elm-vim {{{2
 let g:elm_format_autosave = 1
+let g:elm_make_output_file = "index.html" "deleting this would revert to 'elm.js' as output

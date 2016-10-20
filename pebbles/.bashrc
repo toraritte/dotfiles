@@ -97,7 +97,7 @@ if ! shopt -oq posix; then
 fi
 
 # export PATH="$HOME/aplaceholderforthefuture:$PATH"
-export PATH="$HOME/.kerl:$HOME/.exenv/bin:$PATH"
+export PATH="$HOME/.kerl:$HOME/.exenv/bin:$HOME/dotfiles:$PATH"
 export EDITOR=$(which vim)
 export MANWIDTH=80
 # for the vim-fzf plugin to list hidden files as well
