@@ -33,6 +33,7 @@ Plug 'sjl/tslime.vim'
 Plug 'embear/vim-foldsearch'
 Plug 'Konfekt/FastFold'
 Plug 'ElmCast/elm-vim'
+Plug 'sukima/xmledit'
 call plug#end()
 
 " === Settings   {{{1
@@ -113,6 +114,7 @@ if has("autocmd")
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
   autocmd FileType ruby setlocal et ts=2 sw=2 tw=0
   autocmd FileType html setlocal et ts=2 sw=2 tw=0 fdm=syntax
+  autocmd FileType xml setlocal et ts=2 sw=2 tw=0 fdm=syntax
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noet
   autocmd Filetype slim setlocal ts=2 sts=2 sw=2
   autocmd FileType erl setlocal ts=8 sw=4 sts=4 noet
@@ -171,6 +173,12 @@ function! QuickfixFilenames()
 	endfor
 	return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
 endfunction
+
+" PrettyXML {{{2
+function! DoPrettyXML()
+  silent %!xmllint --format -
+endfunction
+command! PrettyXML call DoPrettyXML()
 
 " === Key mappings    {{{1
 " \v opens vimrc in a new tab, \s sources it
@@ -354,5 +362,5 @@ noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 let g:tslime_ensure_trailing_newlines = 1
 
 " elm-vim {{{2
-let g:elm_format_autosave = 1
+" let g:elm_format_autosave = 1
 let g:elm_make_output_file = "index.html" "deleting this would revert to 'elm.js' as output
