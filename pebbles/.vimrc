@@ -1,5 +1,6 @@
 " vim:fdm=marker:fdl=0:fdls=0:
 
+
 " === Plugin Management {{{1
 " switching to plugin manager https://github.com/junegunn/vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -19,6 +20,7 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
+Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
@@ -34,6 +36,8 @@ Plug 'embear/vim-foldsearch'
 Plug 'Konfekt/FastFold'
 Plug 'ElmCast/elm-vim'
 Plug 'sukima/xmledit'
+Plug 'raichoo/purescript-vim'
+Plug 'andyl/vim-textobj-elixir' | Plug 'kana/vim-textobj-user'
 call plug#end()
 
 " === Settings   {{{1
@@ -120,6 +124,7 @@ if has("autocmd")
   autocmd FileType erl setlocal ts=8 sw=4 sts=4 noet
   autocmd BufRead,BufNewFile *.slim setfiletype slim
   autocmd FileType gitcommit setlocal textwidth=72
+  autocmd FileType elixir setlocal fdm=syntax
   au BufEnter *.erl :set shiftwidth=4
 endif
 
@@ -202,6 +207,19 @@ xnoremap & :&&<CR>$
 
 " <Space> instead of 'za' (unfold the actual fold)
 nnoremap <Space> za
+
+" Like gJ, but always remove spaces
+fun! JoinSpaceless()
+    execute 'normal gJ'
+
+    " Character under cursor is whitespace?
+    if matchstr(getline('.'), '\%' . col('.') . 'c.') =~ '\s'
+        " When remove it!
+        execute 'normal dw'
+    endif
+endfun
+
+nnoremap <Leader>J :call JoinSpaceless()<CR>
 
 " in NORMAL mode CTRL-j splits line at cursor
 nnoremap <NL> i<CR><ESC>

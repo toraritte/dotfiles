@@ -129,3 +129,5 @@ fi
 if [ -f /home/toraritte/Downloads/google-cloud-sdk/completion.bash.inc ]; then
   source '/home/toraritte/Downloads/google-cloud-sdk/completion.bash.inc'
 fi
+
+. /home/toraritte/.kerl/installations/19.2/activate
