@@ -125,6 +125,7 @@ if has("autocmd")
   autocmd BufRead,BufNewFile *.slim setfiletype slim
   autocmd FileType gitcommit setlocal textwidth=72
   autocmd FileType elixir setlocal fdm=syntax
+  autocmd FileType haskell setlocal fdm=syntax
   au BufEnter *.erl :set shiftwidth=4
 endif
 
