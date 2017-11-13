@@ -2,3 +2,4 @@
 *.swp
 elm-package.json
 elm-format
+*.un~
