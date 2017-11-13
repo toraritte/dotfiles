@@ -1,6 +1,5 @@
 " vim:fdm=marker:fdl=0:fdls=0:
 
-
 " === Plugin Management {{{1
 " switching to plugin manager https://github.com/junegunn/vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -38,6 +37,12 @@ Plug 'ElmCast/elm-vim'
 Plug 'sukima/xmledit'
 Plug 'raichoo/purescript-vim'
 Plug 'andyl/vim-textobj-elixir' | Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-markdown-folding'
+" Plug 'mbbill/undotree'
+Plug 'toraritte/undotree'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/limelight.vim'
 call plug#end()
 
 " === Settings   {{{1
@@ -46,10 +51,10 @@ if &t_Co > 2 || has("gui_running")
  syntax on
 endif
 
-colorscheme railscasts
+" colorscheme railscasts
 
 set encoding=utf-8
-set foldtext=substitute(getline(v:foldstart),'/\\*\\\|\\*/\\\|{{{\\d\\=','','g')
+set noequalalways
 set foldlevelstart=0
 set modeline
 set autoindent expandtab smarttab
@@ -67,11 +72,12 @@ set autoread
 set history=5000
 set noswapfile
 set fillchars="vert:|,fold: "
-set t_Co=256 " needed for -railscasts- colorscheme
+" set t_Co=256 " needed for -railscasts- colorscheme
 set showmatch
 set matchtime=2
 set hidden
 set listchars=tab:⇥\ ,trail:␣,extends:⇉,precedes:⇇,nbsp:·,eol:¬
+set undofile
 
 set statusline=   " clear the statusline for when vimrc is reloaded
 set statusline+=[%-6{fugitive#head()}]
@@ -85,6 +91,7 @@ set statusline+=[b%n,                      " buffer number
 set statusline+=w%{winnr()}]
 set statusline+=%h%m%r%w                     " flags
 set rtp+=~/.fzf
+set foldtext=substitute(getline(v:foldstart),'/\\*\\\|\\*/\\\|{{{\\d\\=','','g')
 
 " === Scripts   {{{1
 " _$ - Strip trailing whitespace {{{2
@@ -102,9 +109,9 @@ function! Preserve(command)
 endfunction
 
 " Allow color schemes to do bright colors without forcing bold. {{{2
-if &t_Co == 8 && $TERM !~# '^linux'
-  set t_Co=16
-endif
+" if &t_Co == 8 && $TERM !~# '^linux'
+"   set t_Co=16
+" endif
 
 " if vim has been compiled with +autocmd then do all below {{{2
 if has("autocmd")
@@ -187,6 +194,10 @@ endfunction
 command! PrettyXML call DoPrettyXML()
 
 " === Key mappings    {{{1
+" set undopoint in insert mode before pasting a text {{{2
+" https://unix.stackexchange.com/questions/117323/how-do-i-only-undo-pasted-text-in-vim
+inoremap <C-R> <C-G>u<C-R>
+
 " \v opens vimrc in a new tab, \s sources it
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>s :source $MYVIMRC<CR>
@@ -380,6 +391,30 @@ noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 " tslime {{{2
 let g:tslime_ensure_trailing_newlines = 1
 
-" elm-vim {{{2
-" let g:elm_format_autosave = 1
-let g:elm_make_output_file = "index.html" "deleting this would revert to 'elm.js' as output
+" UndoTree {{{2
+let g:undotree_ShortIndicators = 1
+let g:undotree_CustomUndotreeCmd = 'vertical 32 new'
+let g:undotree_CustomDiffpanelCmd= 'belowright 12 new'
+
+" Seoul256 colorscheme {{{2
+let g:seoul256_background = 235
+colorscheme seoul256
+
+" Goyo {{{2
+
+let g:goyo_width = 104
+
+function! s:goyo_enter()
+  Limelight0.4
+  UndotreeToggle
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  Limelight!
+  UndotreeToggle
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
