@@ -12,7 +12,9 @@
 	; https://stackoverflow.com/questions/21116069/decent-git-branch-visualization-tool#21116982
 	v = log --graph --oneline --decorate --all
 
-	discard = checkout --
+        ; https://stackoverflow.com/questions/52704/how-do-i-discard-unstaged-changes-in-git
+	; `git clean -df` may be needed, see 3rd answer (Mariusz)
+	discard = checkout -- .
 	; ctags = !.git/hooks/ctags
 [push]
 	default = simple
