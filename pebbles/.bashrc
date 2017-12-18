@@ -48,6 +48,12 @@ fi
 
 # GIT STATUS IN BASH PROMPT
 source ~/dotfiles/add/git-prompt.sh
+# add git completion
+git_completion_file=~/git-completion.bash
+if [ ! -f $git_completion_file ]; then
+  (cd ~ && curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash)
+fi
+source $git_completion_file
 # + for staged, * if unstaged.
 GIT_PS1_SHOWDIRTYSTATE=1¬
 # $ if something is stashed.
