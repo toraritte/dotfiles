@@ -86,6 +86,10 @@ alias r='fc -s' # repeat the last command
 alias tmux='tmux -2' # make tmux support 256 color
 alias ag='ag --hidden'
 alias n='nix-env'
+alias cra='/nix/store/350mh8m3fd42nq0zqpix4rh79cvq3wlf-nodejs-6.11.5/bin/create-react-app'
+alias ionic='/nix/store/350mh8m3fd42nq0zqpix4rh79cvq3wlf-nodejs-6.11.5/bin/ionic'
+# https://unix.stackexchange.com/questions/19317/can-less-retain-colored-output
+alias gl='git v --color=always | less -r'
 
 # http://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
 tl() {
