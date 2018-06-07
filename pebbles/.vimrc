@@ -21,7 +21,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
-Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
@@ -33,7 +32,6 @@ Plug 'vim-erlang/vim-erlang-tags'
 Plug 'sjl/tslime.vim'
 Plug 'embear/vim-foldsearch'
 Plug 'Konfekt/FastFold'
-Plug 'ElmCast/elm-vim'
 Plug 'sukima/xmledit'
 Plug 'raichoo/purescript-vim'
 Plug 'andyl/vim-textobj-elixir' | Plug 'kana/vim-textobj-user'
@@ -92,6 +90,8 @@ set statusline+=w%{winnr()}]
 set statusline+=%h%m%r%w                     " flags
 set rtp+=~/.fzf
 set foldtext=substitute(getline(v:foldstart),'/\\*\\\|\\*/\\\|{{{\\d\\=','','g')
+set ignorecase
+set smartcase
 
 " === Scripts   {{{1
 " _$ - Strip trailing whitespace {{{2
@@ -127,9 +127,9 @@ if has("autocmd")
   autocmd FileType html setlocal et ts=2 sw=2 tw=0 fdm=syntax
   autocmd FileType xml setlocal et ts=2 sw=2 tw=0 fdm=syntax
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noet
-  autocmd Filetype slim setlocal ts=2 sts=2 sw=2
+  autocmd BufRead,BufNewFile *.elm setfiletype elm
+  autocmd Filetype elm setlocal et ts=2 sts=2 sw=2
   autocmd FileType erl setlocal ts=8 sw=4 sts=4 noet
-  autocmd BufRead,BufNewFile *.slim setfiletype slim
   autocmd FileType gitcommit setlocal textwidth=72
   autocmd FileType elixir setlocal fdm=syntax
   autocmd FileType haskell setlocal fdm=syntax
