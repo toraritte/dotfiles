@@ -210,6 +210,9 @@ nnoremap 99 <C-w>w
 " %% - Open files in their respective folders other than the pwd
 cnoremap <expr> %%  getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'
 
+" get current working directory to save new files
+cnoremap <expr> %p getcwd()
+
 " <Leader>l - change working dir for current window only
 nnoremap <Leader>l :lcd %:p:h<CR>:pwd<CR>
 
