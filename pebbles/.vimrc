@@ -29,7 +29,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-compiler'
 Plug 'vim-erlang/vim-erlang-tags'
-Plug 'sjl/tslime.vim'
+Plug 'jgdavey/tslime.vim'
 Plug 'embear/vim-foldsearch'
 Plug 'Konfekt/FastFold'
 Plug 'sukima/xmledit'
@@ -53,7 +53,7 @@ endif
 
 set encoding=utf-8
 set noequalalways
-set foldlevelstart=0
+set foldlevelstart=99
 set modeline
 set autoindent expandtab smarttab
 set shiftround

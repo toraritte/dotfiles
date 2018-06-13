@@ -120,12 +120,9 @@ set -o vi
 # https://bbs.archlinux.org/viewtopic.php?id=129992
 # I had an issue with iex and this solved it
 export LANG=en_US.UTF-8
-export LC_MESSAGES="C"
-
-eval "$(exenv init -)"
-
-export NVM_DIR="/home/toraritte/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+# export LC_MESSAGES="C"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /home/toraritte/Downloads/google-cloud-sdk/path.bash.inc ]; then
@@ -136,5 +133,3 @@ fi
 if [ -f /home/toraritte/Downloads/google-cloud-sdk/completion.bash.inc ]; then
   source '/home/toraritte/Downloads/google-cloud-sdk/completion.bash.inc'
 fi
-
-. /home/toraritte/.kerl/installations/19.2/activate
