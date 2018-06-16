@@ -9,8 +9,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'vim-scripts/netrw.vim'
-Plug 'tpope/vim-vinegar'
+Plug 'francoiscabrol/ranger.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/neocomplete.vim'
 Plug 'easymotion/vim-easymotion'
@@ -355,9 +354,6 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-" netrw {{{2
-let g:netrw_liststyle=3
-
 " easymotion & co {{{2
 " <Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)
@@ -421,3 +417,7 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" ranger.vim {{{2
+let g:ranger_map_keys = 0
+nmap - :Ranger<CR>
