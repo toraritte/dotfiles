@@ -192,37 +192,60 @@ function! DoPrettyXML()
 endfunction
 command! PrettyXML call DoPrettyXML()
 
+" MakeDirsAndSaveFile (:M) {{{2
+
+" Created to be able to save a file opened with :edit where the path
+" contains directories that do not exist yet. This script will create
+" them and if they exist, `mkdir` will run without throwing an error.
+
+command! M :call MakeDirsAndSaveFile()
+" https://stackoverflow.com/questions/12625091/how-to-understand-this-vim-script
+" or
+" :h eval.txt
+" :h :fu
+function! MakeDirsAndSaveFile()
+  " https://vi.stackexchange.com/questions/1942/how-to-execute-shell-commands-silently
+  :silent !mkdir -p %:h
+  :redraw!
+  " ----------------------------------------------------------------------------------
+  :write
+endfunction
+
 " === Key mappings    {{{1
 " set undopoint in insert mode before pasting a text {{{2
 " https://unix.stackexchange.com/questions/117323/how-do-i-only-undo-pasted-text-in-vim
 inoremap <C-R> <C-G>u<C-R>
 
-" \v opens vimrc in a new tab, \s sources it
+" \yy - copy entire buffer to system clipboard {{{2
+
+nmap <leader>yy :%yank +<CR>
+
+" \v opens vimrc in a new tab, \s sources it {{{2
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>s :source $MYVIMRC<CR>
 
-" 44 instead of <C-^>
+" 44 instead of <C-^> {{{2
 nnoremap 44 <C-^>
-" 99 instead of <C-w>w
+" 99 instead of <C-w>w {{{2
 nnoremap 99 <C-w>w
 
-" %% - Open files in their respective folders other than the pwd
+" %% - Open files in their respective folders other than the pwd {{{2
 cnoremap <expr> %%  getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'
 
-" get current working directory to save new files
+" get current working directory to save new files {{{2
 cnoremap <expr> %p getcwd()
 
-" <Leader>l - change working dir for current window only
+" <Leader>l - change working dir for current window only {{{2
 nnoremap <Leader>l :lcd %:p:h<CR>:pwd<CR>
 
-" & - synonym for :&& instead of :& (both in Normal and in Visual mode)
+" & - synonym for :&& instead of :& (both in Normal and in Visual mode) {{{2
 nnoremap & :&&<CR>$
 xnoremap & :&&<CR>$
 
-" <Space> instead of 'za' (unfold the actual fold)
+" <Space> instead of 'za' (unfold the actual fold) {{{2
 nnoremap <Space> za
 
-" Like gJ, but always remove spaces
+" Like gJ, but always remove spaces {{{2
 fun! JoinSpaceless()
     execute 'normal gJ'
 
@@ -235,14 +258,14 @@ endfun
 
 nnoremap <Leader>J :call JoinSpaceless()<CR>
 
-" in NORMAL mode CTRL-j splits line at cursor
+" in NORMAL mode CTRL-j splits line at cursor {{{2
 nnoremap <NL> i<CR><ESC>
 
-" <C-p> and <C-n> instead of <Up>,<Down> on command line
+" <C-p> and <C-n> instead of <Up>,<Down> on command line {{{2
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
-" {visual}* search
+" {visual}* search {{{2
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 function! s:VSetSearch()
@@ -252,12 +275,12 @@ function! s:VSetSearch()
   let @s = temp
 endfunction
 
-" & now repeats the last :s with its flags
+" & now repeats the last :s with its flags {{{2
 " the original & repeats the last :s WITHOUT the flags
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
-" fzf
+" fzf {{{2
 nnoremap <leader><C-r> :History:<CR>
 nnoremap <leader><C-o> :Files<CR>
 nnoremap <leader><C-l> :Lines<CR>
