@@ -28,5 +28,5 @@
 ; 	templatedir = /home/toraritte/dotfiles/.git_template/
 [diff]
 	tool = vimdiff
-[core]
-	editor = nvim
+; [core]
+; 	editor = nvim
