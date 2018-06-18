@@ -14,9 +14,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'Shougo/neocomplete.vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
+" TODO: These are probably redundant. Clear it up.
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
+Plug 'andyl/vim-textobj-elixir' | Plug 'kana/vim-textobj-user'
+" ---
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
@@ -25,15 +27,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-compiler'
 Plug 'vim-erlang/vim-erlang-tags'
-Plug 'jgdavey/tslime.vim'
-Plug 'embear/vim-foldsearch'
-Plug 'Konfekt/FastFold'
 Plug 'sukima/xmledit'
 Plug 'raichoo/purescript-vim'
-Plug 'andyl/vim-textobj-elixir' | Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-markdown-folding'
-" Plug 'mbbill/undotree'
-Plug 'toraritte/undotree'
+Plug 'mbbill/undotree'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/limelight.vim'
@@ -373,9 +370,6 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
-" tslime {{{2
-let g:tslime_ensure_trailing_newlines = 1
 
 " UndoTree {{{2
 let g:undotree_ShortIndicators = 1
