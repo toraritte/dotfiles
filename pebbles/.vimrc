@@ -14,6 +14,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'Shougo/neocomplete.vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-obsession'
 " TODO: These are probably redundant. Clear it up.
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
