@@ -73,7 +73,7 @@ set undofile
 
 set statusline=   " clear the statusline for when vimrc is reloaded
 set statusline+=[%-6{fugitive#head()}]
-set statusline+=%t\                          " file name
+set statusline+=%f\                          " file name
 set statusline+=[%2{strlen(&ft)?&ft:'none'},  " filetype
 set statusline+=%2{strlen(&fenc)?&fenc:&enc}, " encoding
 set statusline+=%2{&fileformat}]              " file format
