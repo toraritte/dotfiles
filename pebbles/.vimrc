@@ -9,6 +9,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'embear/vim-foldsearch'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/neocomplete.vim'
@@ -214,6 +215,10 @@ inoremap <C-R> <C-G>u<C-R>
 " \yy - copy entire buffer to system clipboard {{{2
 
 nmap <leader>yy :%yank +<CR>
+
+" \cc - empty buffer and go into insert mode
+
+nmap <leader>cc gg<S-v><S-g>c
 
 " \v opens vimrc in a new tab, \s sources it {{{2
 nmap <leader>v :tabedit $MYVIMRC<CR>
