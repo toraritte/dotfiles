@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+. /home/toraritte/.nix-profile/etc/profile.d/nix.sh
+
 # If not running interactively, don't do anything
 # ... aaand what the hell this check means and why
 #     it matters
