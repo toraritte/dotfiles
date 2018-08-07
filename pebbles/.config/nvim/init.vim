@@ -12,13 +12,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-scripts/netrw.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
-Plug 'easymotion/vim-easymotion'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-easymotion.vim'
-Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-sleuth'
@@ -30,9 +25,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-compiler'
 Plug 'vim-erlang/vim-erlang-tags'
-Plug 'sjl/tslime.vim'
 Plug 'embear/vim-foldsearch'
-Plug 'Konfekt/FastFold'
 Plug 'ElmCast/elm-vim'
 Plug 'raichoo/purescript-vim'
 Plug 'andyl/vim-textobj-elixir' | Plug 'kana/vim-textobj-user'
@@ -41,7 +34,6 @@ Plug 'mbbill/undotree'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'keith/swift.vim'
 call plug#end()
 
 " === Settings   {{{1
@@ -71,7 +63,6 @@ set autoread
 set history=5000
 set noswapfile
 set fillchars="vert:|,fold: "
-" set t_Co=256 " needed for -railscasts- colorscheme
 set showmatch
 set matchtime=2
 set hidden
@@ -194,6 +185,20 @@ function! DoPrettyXML()
 endfunction
 command! PrettyXML call DoPrettyXML()
 
+" MakeDirsAndSaveFile {{{2
+" Created to be able to save a file opened with :edit where the 
+" path contains directories that do not exist yet. This script
+" will create them and if they exist, `mkdir` will run without
+" throwing an error.
+command! M :call MakeDirsAndSaveFile()
+function! MakeDirsAndSaveFile()
+  " https://vi.stackexchange.com/questions/1942/how-to-execute-shell-commands-silently
+  :silent !mkdir -p %:h
+  :redraw!
+  " -----------
+  :write
+endfunction
+
 " === Key mappings    {{{1
 " set undopoint in insert mode before pasting a text {{{2
 " https://unix.stackexchange.com/questions/117323/how-do-i-only-undo-pasted-text-in-vim
@@ -287,39 +292,6 @@ call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 
 " netrw {{{2
 let g:netrw_liststyle=3
-
-" easymotion & co {{{2
-" <Leader>f{char} to move to {char}
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-
-" s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
-
-" Move to line
-map <Leader>L <Plug>(easymotion-bd-jk)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
-
-" Move to word
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-" You can use other keymappings like <C-l> instead of <CR> if you want to
-" use these mappings as default search and somtimes want to move cursor with
-" EasyMotion.
-function! s:incsearch_config(...) abort
-  return incsearch#util#deepextend(deepcopy({
-  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-  \   'keymap': {
-  \     "\<CR>": '<Over>(easymotion)'
-  \   },
-  \   'is_expr': 0
-  \ }), get(a:, 1, {}))
-endfunction
-
-noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
-noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
-noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 
 " tslime {{{2
 let g:tslime_ensure_trailing_newlines = 1
