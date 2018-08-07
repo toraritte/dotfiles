@@ -330,7 +330,7 @@ let g:undotree_CustomUndotreeCmd = 'vertical 32 new'
 let g:undotree_CustomDiffpanelCmd= 'belowright 12 new'
 
 " Seoul256 colorscheme {{{2
-let g:seoul256_background = 239
+let g:seoul256_background = 235
 colorscheme seoul256
 
 " Goyo {{{2

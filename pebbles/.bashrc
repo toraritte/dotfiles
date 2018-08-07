@@ -133,3 +133,5 @@ fi
 if [ -f /home/toraritte/Downloads/google-cloud-sdk/completion.bash.inc ]; then
   source '/home/toraritte/Downloads/google-cloud-sdk/completion.bash.inc'
 fi
+
+source $HOME/.nix-profile/etc/profile.d/nix.sh

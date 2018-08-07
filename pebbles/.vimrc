@@ -36,6 +36,7 @@ Plug 'mbbill/undotree'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 " === Settings   {{{1
@@ -121,7 +122,7 @@ if has("autocmd")
   autocmd FileType ruby setlocal et ts=2 sw=2 tw=0
   autocmd FileType html setlocal et ts=2 sw=2 tw=0 fdm=syntax
   autocmd FileType xml setlocal et ts=2 sw=2 tw=0 fdm=syntax
-  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noet
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 et
   autocmd BufRead,BufNewFile *.elm setfiletype elm
   autocmd Filetype elm setlocal et ts=2 sts=2 sw=2
   autocmd FileType erl setlocal ts=8 sw=4 sts=4 noet
@@ -215,6 +216,9 @@ inoremap <C-R> <C-G>u<C-R>
 " \yy - copy entire buffer to system clipboard {{{2
 
 nmap <leader>yy :%yank +<CR>
+
+" \ys - copy entire buffer to *
+nmap <leader>ys :%yank *<CR>
 
 " \cc - empty buffer and go into insert mode
 
@@ -360,7 +364,7 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS foldmethod=syntax
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd BufRead /tmp/mutt-* set tw=72
