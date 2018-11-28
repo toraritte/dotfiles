@@ -24,7 +24,6 @@ Plug 'andyl/vim-textobj-elixir' | Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf.vim'
 Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-compiler'
@@ -37,6 +36,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'Konfekt/FastFold'
 call plug#end()
 
 " === Settings   {{{1
@@ -72,6 +72,7 @@ set matchtime=2
 set hidden
 set listchars=tab:⇥\ ,trail:␣,extends:⇉,precedes:⇇,nbsp:·,eol:¬
 set undofile
+set undodir=~/.vim_undo_files
 
 set statusline=   " clear the statusline for when vimrc is reloaded
 set statusline+=[%-6{fugitive#head()}]
@@ -291,6 +292,7 @@ nnoremap <leader><C-l> :Lines<CR>
 nnoremap <leader><C-i> :BLines<CR>
 nnoremap <leader><C-k> :Buffers<CR>
 nnoremap <leader><C-j> :Ag<CR>
+nnoremap <leader><C-w> :Windows<CR>
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " === Plugin configuration   {{{1
@@ -387,7 +389,7 @@ let g:undotree_CustomUndotreeCmd = 'vertical 32 new'
 let g:undotree_CustomDiffpanelCmd= 'belowright 12 new'
 
 " Seoul256 colorscheme {{{2
-let g:seoul256_background = 235
+let g:seoul256_background = 233
 colorscheme seoul256
 
 " Goyo {{{2
