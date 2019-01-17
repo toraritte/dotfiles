@@ -130,6 +130,11 @@ if has("autocmd")
   autocmd FileType gitcommit setlocal textwidth=72
   autocmd FileType elixir setlocal fdm=syntax
   autocmd FileType haskell setlocal fdm=syntax
+
+  " see `:h surround.txt`
+  autocmd FileType eelixir let b:surround_45 = "<% \r %>"
+  autocmd FileType eelixir let b:surround_61 = "<%= \r %>"
+
   au BufEnter *.erl :set shiftwidth=4
 endif
 

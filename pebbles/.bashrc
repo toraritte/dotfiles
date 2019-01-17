@@ -80,7 +80,7 @@ if grep --quiet fedora /etc/*release; then
 fi
 
 alias ll='ls -alF --group-directories-first --color'
-alias g='egrep --colour -i'
+alias g='egrep --colour=always -i'
 alias ag='ag --hidden'
 alias b='bc -lq'
 alias dt="date +%Y/%m/%d-%H:%M"
