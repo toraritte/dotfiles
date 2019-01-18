@@ -300,6 +300,9 @@ nnoremap <leader><C-j> :Ag<CR>
 nnoremap <leader><C-w> :Windows<CR>
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
+"gp - http://vim.wikia.com/wiki/Selecting_your_pasted_text
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
 " === Plugin configuration   {{{1
 " Load matchit.vim, but only if the user hasn't installed a newer version. {{{2
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
