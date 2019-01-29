@@ -92,7 +92,7 @@ set smartcase
 
 " === Scripts   {{{1
 " _$ - Strip trailing whitespace {{{2
-nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
+nnoremap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
   let _s=@/
@@ -131,7 +131,7 @@ if has("autocmd")
   autocmd FileType elixir setlocal fdm=syntax
   autocmd FileType haskell setlocal fdm=syntax
 
-  " see `:h surround.txt`
+  " yss- and yss=, respectively. See `:h surround.txt`
   autocmd FileType eelixir let b:surround_45 = "<% \r %>"
   autocmd FileType eelixir let b:surround_61 = "<%= \r %>"
 
@@ -220,19 +220,20 @@ endfunction
 inoremap <C-R> <C-G>u<C-R>
 
 " \yy - copy entire buffer to system clipboard {{{2
-
-nmap <leader>yy :%yank +<CR>
+nnoremap <leader>yy :%yank +<CR>
 
 " \ys - copy entire buffer to *
-nmap <leader>ys :%yank *<CR>
+nnoremap <leader>ys :%yank *<CR>
 
 " \cc - empty buffer and go into insert mode
-
-nmap <leader>cc gg<S-v><S-g>c
+nnoremap <leader>cc gg<S-v><S-g>c
 
 " \v opens vimrc in a new tab, \s sources it {{{2
-nmap <leader>v :tabedit $MYVIMRC<CR>
-nmap <leader>s :source $MYVIMRC<CR>
+nnoremap <leader>v :tabedit $MYVIMRC<CR>
+nnoremap <leader>s :source $MYVIMRC<CR>
+
+" vil - inner line
+nnoremap vil ^vg_
 
 " 44 instead of <C-^> {{{2
 nnoremap 44 <C-^>
@@ -421,4 +422,4 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " ranger.vim {{{2
 let g:ranger_map_keys = 0
-nmap - :Ranger<CR>
+nnoremap - :Ranger<CR>
