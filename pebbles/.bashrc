@@ -96,6 +96,8 @@ alias tmux='tmux -2' # make tmux support 256 color
 alias ag='ag --hidden'
 alias gl='git v --color=always | less -r'
 alias gv='git van --color=always | less -r'
+alias glh="gl | head"
+alias gvh="gv | head"
 
 # http://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
 tl() {
