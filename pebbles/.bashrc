@@ -13,6 +13,13 @@ case $- in
       *) return;;
 esac
 
+# set the title of a terminal window/tab
+set-title(){
+  ORIG=$PS1
+  TITLE="\e]2;$@\a"
+  PS1=${ORIG}${TITLE}
+}
+
 # unified bash history
 # HIT ENTER FIRST IF LAST COMMAND IS NOT SEEN IN ANOTHER WINDOW
 # http://superuser.com/questions/37576/can-history-files-be-unified-in-bash
