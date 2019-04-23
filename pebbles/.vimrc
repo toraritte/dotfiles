@@ -30,12 +30,12 @@ Plug 'vim-erlang/vim-erlang-compiler'
 Plug 'vim-erlang/vim-erlang-tags'
 Plug 'sukima/xmledit'
 Plug 'raichoo/purescript-vim'
-Plug 'nelstrom/vim-markdown-folding'
 Plug 'mbbill/undotree'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'masukomi/vim-markdown-folding'
 Plug 'Konfekt/FastFold'
 call plug#end()
 
@@ -71,8 +71,16 @@ set showmatch
 set matchtime=2
 set hidden
 set listchars=tab:⇥\ ,trail:␣,extends:⇉,precedes:⇇,nbsp:·,eol:¬
+
+" https://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
+if !isdirectory($HOME."/.vim")
+    call mkdir($HOME."/.vim", "", 0770)
+endif
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+endif
+set undodir=~/.vim/undo-dir
 set undofile
-set undodir=~/.vim_undo_files
 
 set statusline=   " clear the statusline for when vimrc is reloaded
 set statusline+=[%-6{fugitive#head()}]
@@ -85,7 +93,7 @@ set statusline+=[b%n,                      " buffer number
 " window number, alternate file in which window (-1 = not visible)
 set statusline+=w%{winnr()}]
 set statusline+=%h%m%r%w                     " flags
-set rtp+=~/.fzf
+set rtp+=~/dotfiles/fzf
 set foldtext=substitute(getline(v:foldstart),'/\\*\\\|\\*/\\\|{{{\\d\\=','','g')
 set ignorecase
 set smartcase
@@ -423,3 +431,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " ranger.vim {{{2
 let g:ranger_map_keys = 0
 nnoremap - :Ranger<CR>
+
+" FastFold
+let g:markdown_folding = 1

@@ -127,7 +127,11 @@ export FZF_DEFAULT_COMMAND='find .'
 set -o vi
 
 # Cleanup after dot-install is finished
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+if command -v fzf-share >/dev/null; then
+  source "/home/toraritte/dotfiles/copy/.fzf/shell/key-bindings.bash"
+  # source "$(fzf-share)/key-bindings.bash"
+fi
 
 # https://bbs.archlinux.org/viewtopic.php?id=129992
 # I had an issue with iex and this solved it
