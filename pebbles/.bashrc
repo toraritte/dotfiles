@@ -140,6 +140,8 @@ export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 # export LC_MESSAGES="C"
 
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /home/toraritte/Downloads/google-cloud-sdk/path.bash.inc ]; then
   source '/home/toraritte/Downloads/google-cloud-sdk/path.bash.inc'
