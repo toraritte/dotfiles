@@ -35,7 +35,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'masukomi/vim-markdown-folding'
 Plug 'Konfekt/FastFold'
 call plug#end()
 
@@ -93,7 +92,12 @@ set statusline+=[b%n,                      " buffer number
 " window number, alternate file in which window (-1 = not visible)
 set statusline+=w%{winnr()}]
 set statusline+=%h%m%r%w                     " flags
+
+" TODO: this seems to be  the classic problem that Nix
+" is meant to solve:  vim-fzf has a runtime dependency
+" on the command line tool fzf. See Nixpkgs manual's Vim section.
 set rtp+=~/dotfiles/fzf
+
 set foldtext=substitute(getline(v:foldstart),'/\\*\\\|\\*/\\\|{{{\\d\\=','','g')
 set ignorecase
 set smartcase
@@ -127,19 +131,24 @@ if has("autocmd")
    \ if line("'\"") > 1 && line("'\"") <= line("$") |
    \   exe "normal! g`\"" |
    \ endif
-  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
-  autocmd FileType ruby setlocal et ts=2 sw=2 tw=0
-  autocmd FileType html setlocal et ts=2 sw=2 tw=0 fdm=syntax
-  autocmd FileType xml setlocal et ts=2 sw=2 tw=0 fdm=syntax
-  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 et
-  autocmd BufRead,BufNewFile *.elm setfiletype elm
-  autocmd Filetype elm setlocal et ts=2 sts=2 sw=2
-  autocmd FileType erl setlocal ts=8 sw=4 sts=4 noet
-  autocmd FileType gitcommit setlocal textwidth=72
-  autocmd FileType elixir setlocal fdm=syntax
-  autocmd FileType haskell setlocal fdm=syntax
+  autocmd FileType *          setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
 
-  " yss- and yss=, respectively. See `:h surround.txt`
+  autocmd FileType ruby       setlocal ts=2 sw=2 tw=0  et
+  autocmd FileType css        setlocal ts=2 sw=2 tw=0  et
+  autocmd FileType html       setlocal ts=2 sw=2 tw=0  et fdm=syntax
+  autocmd FileType xml        setlocal ts=2 sw=2 tw=0  et fdm=syntax
+  autocmd FileType javascript setlocal ts=4 sw=2 sts=2 et
+  autocmd FileType erl        setlocal ts=8 sw=4 sts=4 noet
+
+  autocmd FileType gitcommit  setlocal textwidth=72
+
+  autocmd FileType elixir     setlocal fdm=syntax
+  autocmd FileType haskell    setlocal fdm=syntax
+
+  autocmd BufRead,BufNewFile *.elm setfiletype elm
+  autocmd Filetype elm        setlocal et ts=2 sw=2 sts=2
+
+  " yss- and yss=, respectively, in eex template files. See `:h surround.txt`
   autocmd FileType eelixir let b:surround_45 = "<% \r %>"
   autocmd FileType eelixir let b:surround_61 = "<%= \r %>"
 
