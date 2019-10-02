@@ -9,8 +9,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'AndrewRadev/linediff.vim'
+Plug 'vmchale/dhall-vim'
 Plug 'embear/vim-foldsearch'
-Plug 'francoiscabrol/ranger.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/deoplete.nvim'
 Plug 'godlygeek/tabular'
@@ -24,6 +25,7 @@ Plug 'andyl/vim-textobj-elixir' | Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-erlang/vim-erlang-runtime'
@@ -57,6 +59,7 @@ set nocompatible
 set cursorline
 set list
 set number
+set relativenumber
 set incsearch hlsearch
 set showcmd
 set laststatus=2
@@ -357,9 +360,5 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-" ranger.vim {{{2
-let g:ranger_map_keys = 0
-nnoremap - :Ranger<CR>
-
-" FastFold
+" FastFold {{{2
 let g:markdown_folding = 1
