@@ -362,3 +362,7 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " FastFold {{{2
 let g:markdown_folding = 1
+
+" netrw {{{2
+let g:netrw_winsize   = 30
+let g:netrw_liststyle = 3
