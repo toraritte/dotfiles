@@ -9,7 +9,7 @@
 	unstage = reset HEAD --
 	lo = log --pretty=format:\"%C(yellow)%h%Creset %s%n%C(magenta)%C(bold)%an%Creset %ar\" --graph
 	; https://stackoverflow.com/questions/21116069/decent-git-branch-visualization-tool#21116982
-        van = log --pretty=format:'%C(yellow)%h%Creset %C(magenta)%C(bold)%cn%Creset %s %C(auto)%d%C(reset)' --all --graph
+        van = log --pretty=format:'%C(yellow)%h%Creset %ad %C(magenta)%C(bold)%cn%Creset %s %C(auto)%d%C(reset)' --all --graph --date=format:%Y/%m/%d_%H%M
         v = log --graph --oneline --decorate --all
 	vo = log --graph --decorate --all
 
